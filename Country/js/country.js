@@ -15,24 +15,14 @@ function printConutry(country) {
 
 
 function makeHTML(country) {
-    const { name, flags, area, capital,
-        languages } = country;
+    const { name, flags, area, capital, languages } = country;
+    // console.log(languages);
 
-        const lang = JSON.stringify(language);
-        console.log(lang);
-        // const {} = languages;
-
-    // const propertyValues = Object.values(languages);
-
-    // // console.log(propertyValues);
-
-    // let modifiedArr = propertyValues.map(function (language) {
-    //     return language;
-    // });
-
-
-    console.log(languages);
-
+    let lang = "";
+    for (const conutryLanguage in languages) {
+        lang += languages[conutryLanguage];
+        // console.log(lang);
+    }
 
     const html = `
         <div class="detalis">
@@ -40,7 +30,7 @@ function makeHTML(country) {
             <h3>${name.common}</h3>
             <p> Area: ${area}</p>
             <p>Capital: ${capital}</p>
-            <p>Languages </p>
+            <p>Languages: ${lang}</p>
         </div>
     `;
 
